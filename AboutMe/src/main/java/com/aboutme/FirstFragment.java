@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.aboutme.databinding.FragmentFirstBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class FirstFragment extends Fragment {
 
@@ -34,10 +35,14 @@ public class FirstFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
 
-        binding.buttonContact.setOnClickListener(v ->
+        binding.buttonContact.setOnClickListener(v -> {
+                View root = requireActivity().findViewById(R.id.activity_main_coordinator);
+                Snackbar.make(root, getString(R.string.going_to_contact), Snackbar.LENGTH_SHORT).show();
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_ThirdFragment)
-        );
+                        .navigate(R.id.action_FirstFragment_to_ThirdFragment);
+        });
+
+
     }
 
     @Override
