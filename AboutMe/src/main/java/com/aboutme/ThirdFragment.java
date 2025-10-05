@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.aboutme.databinding.FragmentFirstBinding;
+import com.aboutme.databinding.FragmentThirdBinding;
 
-public class FirstFragment extends Fragment {
+public class ThirdFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentThirdBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentThirdBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,14 +29,9 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonHobbies.setOnClickListener(v ->
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment)
-        );
-
-        binding.buttonContact.setOnClickListener(v ->
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_ThirdFragment)
+        binding.buttonPreviousContact.setOnClickListener(v ->
+                NavHostFragment.findNavController(ThirdFragment.this)
+                        .navigate(R.id.action_ThirdFragment_to_FirstFragment)
         );
     }
 
